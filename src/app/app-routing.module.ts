@@ -13,7 +13,11 @@ const routes: Routes = [
   {
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+  },  {
+    path: 'rgprod',
+    loadChildren: () => import('./rgprod/rgprod.module').then( m => m.RgprodPageModule)
   }
+
 ];
 @NgModule({
   imports: [
