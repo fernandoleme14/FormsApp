@@ -1,8 +1,13 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Entrar</ion-title>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/registro">
+        <ion-icon slot="icon-only" name="person-add-outline"> </ion-icon>
+      </ion-button>
+      <ion-button routerLink="/rgprod">
+        <ion-icon slot="icon-only" name="bag-add-outline"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -12,11 +17,11 @@
   <ion-card>
     <ion-list>
       <ion-item>
-        <ion-label>Email</ion-label>
+        <ion-label>Email: </ion-label>
         <ion-input></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Senha</ion-label>
+        <ion-label>Senha: </ion-label>
         <ion-input></ion-input>
       </ion-item>
     </ion-list>
