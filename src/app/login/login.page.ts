@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,14 +8,25 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginPage implements OnInit {
 
-  formLogin = this.formBuilder.group({
+  formLogin: FormGroup;
 
-    email: ['', Validators.compose([Validators.required, Validators.email])],
-    senha: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
+  mensagens = {
+    email: [
+      { tipo: 'required', mensagem: 'O campo Email é obrigatório!'},
+      { tipo: 'email', mensagem: 'O campo Email deve conter o @!'}
+    ],
+    senha: [
+      { tipo: 'required', mensagem: 'O campo Senha é obrigatório!'},
+      { tipo: 'minlength', mensagem: 'O campo Senha deve ter o tamanho mínimo 6!'}
+    ]
+  };
 
-  });
-
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) {
+    this.formLogin = this.formBuilder.group({
+      email: ['', Validators.compose([Validators.required, Validators.email])],
+      senha: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
+    });
+  }
 
   ngOnInit() {
   }
